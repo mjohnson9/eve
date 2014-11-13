@@ -112,6 +112,8 @@ func (d *Decoder) Decode(v interface{}) (*Metadata, error) {
 		token, err := d.XMLDecoder.Token()
 		if err == io.EOF {
 			break
+		} else if err != nil {
+			return nil, err
 		}
 
 		t, ok := token.(xml.StartElement)
@@ -171,6 +173,8 @@ func (d *Decoder) decodeRowSet(rowSetToken *xml.StartElement) (*RowSet, error) {
 		token, err := d.XMLDecoder.Token()
 		if err == io.EOF {
 			return nil, errors.New("Expected end of rowset, got EOF instead")
+		} else if err != nil {
+			return nil, err
 		}
 
 		if et, ok := token.(xml.EndElement); ok && et.Name.Local == "rowset" {

@@ -19,7 +19,7 @@ const data = `
       <row groupID="5" name="Corporation Members" description="Member information for Corporations." />
       <row groupID="6" name="Outposts and Starbases" description="Outpost and Starbase information for Corporations" />
       <row groupID="7" name="Communications" description="Private communications such as contact lists, Eve Mail and Notifications." />
-    </rowset
+    </rowset>
   </result>
   <cachedUntil>2020-01-02 15:04:05</cachedUntil>
 </eveapi>`
@@ -43,6 +43,16 @@ func ExampleDecode() {
 
 	fmt.Println("Call groups:")
 	for _, group := range output.CallGroups {
-		fmt.Printf("%d. %22s: %s\n", group.ID, group.Name, group.Description)
+		fmt.Printf("%d. %s: %s\n", group.ID, group.Name, group.Description)
 	}
+
+	// Output:
+	// Call groups:
+	// 1. Account and Market: Market Orders, account balance and journal history.
+	// 2. Science and Industry: Datacore production and job listing.
+	// 3. Private Information: Personal information about the owner. Asset lists, skill training for characters, Private Calendar and more.
+	// 4. Public Information: Achievements such as Medals, Kill Mails, Fational Warfare Statistics and NPC Standings.
+	// 5. Corporation Members: Member information for Corporations.
+	// 6. Outposts and Starbases: Outpost and Starbase information for Corporations
+	// 7. Communications: Private communications such as contact lists, Eve Mail and Notifications.
 }
