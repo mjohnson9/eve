@@ -1,6 +1,6 @@
 # eve
 
-[![GoDoc](https://godoc.org/github.com/flexd/eveapi?status.svg)](https://godoc.org/github.com/flexd/eveapi)
+[![GoDoc](https://godoc.org/github.com/nightexcessive/eve?status.svg)](https://godoc.org/github.com/nightexcessive/eve)
 
 [![Build Status](https://travis-ci.org/nightexcessive/eve.svg?branch=master)](https://travis-ci.org/nightexcessive/eve) [![Coverage Status](https://img.shields.io/coveralls/nightexcessive/eve.svg)](https://coveralls.io/r/nightexcessive/eve)
 
