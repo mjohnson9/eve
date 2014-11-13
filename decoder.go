@@ -18,9 +18,20 @@ import (
 // (upper case) fields. Decode uses a case-sensitive comparison to match row
 // sets to tag values and struct field names.
 //
-// Decode maps a row set to a struct by name and passes the elements, which must
-// be slices, to encoding/xml.Unmarshal. See encoding/xml.Unmarshal for more
-// information on how the individual rows are parsed.
+// Decode maps a row set to a struct by name or tag and passes the elements,
+// which must be slices, to encoding/xml.Unmarshal. See encoding/xml.Unmarshal
+// for more information on how the individual rows are parsed.
+//
+// An example of how to use these tags:
+//    type ExampleRow struct {
+//      ID          int    `xml:"groupID,attr"`
+//      Name        string `xml:"name,attr"`
+//      Description string `xml:"description,attr"`
+//    }
+//
+//    type ExampleStruct struct {
+//      CallGroups []*CallGroup `eve:"callGroups"`
+//    }
 func Decode(data []byte, v interface{}) (*Metadata, error) {
 	return NewDecoder(bytes.NewReader(data)).Decode(v)
 }
