@@ -16,6 +16,12 @@ var APIBaseURL = &url.URL{
 // DefaultClient is the default API client.
 var DefaultClient = &Client{}
 
+// Call issues a GET request to the specified endpoint, which make be either a
+// relative or absolute URL.
+func Call(endpoint string, v interface{}) (*Metadata, error) {
+	return DefaultClient.Call(endpoint, v)
+}
+
 // Client represents an EVE API client. The zero value for Client is a full
 // usable API client without any access flags.
 type Client struct {
